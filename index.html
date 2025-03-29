@@ -20,10 +20,10 @@
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      overflow: hidden;
+      overflow: auto; /* Permite rolagem vertical */
       box-sizing: border-box;
     }
-
+    
     .navbar {
       width: 100%;
       display: flex;
@@ -51,10 +51,14 @@
       padding: 10px 20px;
       border-radius: 5px;
       font-weight: bold;
+      background-color: #222222;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.274);
+      transition: background-color 0.3s, box-shadow 0.3s;
     }
 
     .navbar a:hover {
       background-color: #961a1a;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
     }
 
     .content {
@@ -108,6 +112,7 @@
 
     .video-container {
       margin-top: 30px;
+      margin-bottom: 30px;
       text-align: center;
     }
 
@@ -183,11 +188,32 @@
         opacity: 0;
       }
     }
-  </style>
+
+
+    @media screen and (max-width: 1024px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+      }
+
+      .navbar .logo {
+        position: relative;
+        left: 0;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .navbar a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+</style>
+
 </head>
 <body>
 
-  <!-- Barra de navegação -->
   <div class="navbar">
     <div class="logo">Pássaro de Hermes</div>
     <a href="index.html">Início</a>
@@ -195,7 +221,6 @@
     <a href="animais.html">Animais</a>
   </div>
 
-  <!-- Conteúdo principal -->
   <div class="content" id="inicio">
     <h1>Bem-vindo, Sou o Nosferatu Allucard</h1>
     <p>Criando uma descrição temporária teste, depois será editado e ficará de outro nível!</p>
