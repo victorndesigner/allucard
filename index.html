@@ -20,7 +20,7 @@
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      overflow: auto; /* Permite rolagem vertical */
+      overflow: auto;
       box-sizing: border-box;
     }
     
@@ -189,7 +189,6 @@
       }
     }
 
-
     @media screen and (max-width: 1024px) {
       .navbar {
         flex-direction: column;
@@ -206,6 +205,30 @@
 
       .navbar a {
         width: 100%;
+        text-align: center;
+      }
+    }
+
+    .horizontal-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      .horizontal-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .horizontal-buttons a {
+        flex: 1 1 calc(25% - 1px);
+        text-align: center;
+      }
+
+      .teste-button {
+        margin-top: 20px;
         text-align: center;
       }
     }
@@ -226,6 +249,8 @@
     <p>Criando uma descrição temporária teste, depois será editado e ficará de outro nível!</p>
     <div class="button-container">
       <div class="horizontal-buttons">
+        <a href="https://www.youtube.com/@Nosferatu_Allucard/featured">Youtube</a>
+        <a href="https://twitch.tv/nosferatu_allucard">Twitch</a>
         <a href="https://discord.gg/sB28jry8VR">Discord</a>
         <a href="https://x.com/053Alucard">Twitter (X)</a>
       </div>
@@ -265,5 +290,6 @@
       particlesContainer.appendChild(particle);
     }
   </script>
+  
 </body>
 </html>
