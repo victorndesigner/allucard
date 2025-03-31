@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Pássaro de Hermes">
     <meta property="og:description" content="Nosferatu_Allucard">
-    <title>Criação de Animais</title>
+    <title>CRIAÇÃO DE ANIMAIS</title>
     <link rel="icon" href="img/icon.png">
     <style>
         body {
@@ -44,7 +44,6 @@
             margin-bottom: -5px;
             margin-top: -10px;
         }
-
 
         .container {
             background-color: #222;
@@ -132,7 +131,41 @@
         footer a:hover {
             text-decoration: underline;
         }
+        .video-container {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
 
+.video-container a {
+    display: inline-block;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 10px;
+}
+
+        .video-container a::after {
+            content: '\25BA';
+            font-size: 50px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 .particle {
   position: absolute;
   width: 5px;
@@ -190,6 +223,9 @@
             <p><strong style="color: #b92323;">Coordenadas:</strong> 
                 <span id="animal-coords"></span>
             </p>
+            <div class="video-container">
+                <a id="video-link" href="https://youtu.be/tapUWMntRas?si=2f1QdpTeS756DvDi" target="_blank"></a>
+            </div>
         </div>
     </div>    
     
@@ -349,6 +385,7 @@
             document.getElementById('animal-subprodutos').textContent = animal.subprodutos;
             document.getElementById('animal-favfood').textContent = animal.favFood;
             document.getElementById('animal-otherfood').textContent = animal.otherFood;
+            document.getElementById('video-link').style.backgroundImage = "url('https://img.youtube.com/vi/tapUWMntRas/hqdefault.jpg')";
             
             const coordsContainer = document.getElementById('animal-coords');
             coordsContainer.innerHTML = '';
