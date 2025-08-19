@@ -1,296 +1,303 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Pássaro de Hermes">
-  <meta property="og:description" content="Nosferatu_Allucard">
-  <title>Nosferatu_Allucard</title>
-  <link rel="icon" href="img/icon.png">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: url('img/fundo.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      overflow: auto;
-      box-sizing: border-box;
-    }
-    
-    .navbar {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 0;
-      background-color: rgba(34, 34, 34, 0.9);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      gap: 10px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosferatu Allucard</title>
+<link rel="icon" href="img/icon.png">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: url('img/fundo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow: auto;
+  box-sizing: border-box;
+}
 
-    .navbar .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #b92323;
-      text-transform: uppercase;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-      position: absolute;
-      left: 20px;
-    }
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: rgba(34, 34, 34, 0.9);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  position: relative;
+  box-sizing: border-box;
+}
 
-    .navbar a {
-      color: #ffffff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-      background-color: #222222;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.274);
-      transition: background-color 0.3s, box-shadow 0.3s;
-    }
+.navbar .logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #b92323;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
 
-    .navbar a:hover {
-      background-color: #961a1a;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
-    }
+.navbar-links {
+  display: flex;
+  gap: 10px;
+  flex-grow: 1;
+  justify-content: center;
+}
 
-    .content {
-      text-align: center;
-      width: 90%;
-      max-width: 1200px;
-      margin-top: 20px;
-      flex-grow: 1;
-    }
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #222;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.274);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
 
-    h1 {
-      font-size: 2.5em;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
+.navbar a:hover {
+  background-color: #961a1a;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+}
 
-    p {
-      color: #dcdcdc;
-      font-size: 1.2em;
-    }
+.lang-switch {
+  display: flex;
+  gap: 10px;
+}
 
-    .button-container {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
+.lang-switch img {
+  width: 32px;
+  height: 22px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border 0.3s;
+}
 
-    .horizontal-buttons {
-      display: flex;
-      gap: 10px;
-    }
+.lang-switch img.active {
+  border: 2px solid #b92323;
+}
 
-    .button-container a {
-      text-decoration: none;
-      padding: 10px 20px;
-      background-color: #961a1a;
-      color: #ffffff;
-      border-radius: 5px;
-      font-weight: bold;
-    }
+.content {
+  text-align: center;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 20px;
+  flex-grow: 1;
+}
 
-    .button-container a:hover {
-      background-color: #791919;
-    }
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
 
-    .teste-button {
-      margin-top: 10px;
-    }
+p {
+  color: #dcdcdc;
+  font-size: 1.2em;
+}
 
-    .video-container {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      text-align: center;
-    }
+.video-container {
+  margin: 30px 0;
+  text-align: center;
+}
 
-    .video-container h2 {
-      margin-bottom: 15px;
-      color: #ffffff;
-      font-size: 1.5em;
-    }
+.video-container h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
 
-    .video-container a {
-      display: block;
-      position: relative;
-      width: 100%;
-      max-width: 560px;
-      margin: 0 auto;
-      border-radius: 8px;
-      overflow: hidden;
-    }
+.video-container a {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-    .video-container img {
-      width: 100%;
-      display: block;
-      border-radius: 8px;
-    }
+.video-container img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
 
-    .video-container .play-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 70px;
-      height: 70px;
-    }
+.video-container .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+}
 
-    footer {
-      text-align: center;
-      width: 100%;
-      padding: 15px 0;
-      background-color: rgba(34, 34, 34, 0.9);
-      color: #dcdcdc;
-      margin-top: auto;
-    }
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
+.horizontal-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    .particle {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background-color: rgba(179, 19, 19, 0.3);
-      border-radius: 50%;
-      transform: translateY(-150px);
-      animation: fall linear infinite;
-    }
+.button-container a {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #961a1a;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
-    @keyframes fall {
-      0% {
-        transform: translateY(-150px);
-        opacity: 0;
-      }
-      25% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-    }
+.button-container a:hover {
+  background-color: #791919;
+}
 
-    @media screen and (max-width: 1024px) {
-      .navbar {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-      }
+footer {
+  text-align: center;
+  width: 100%;
+  padding: 15px 0;
+  background-color: rgba(34,34,34,0.9);
+  color: #dcdcdc;
+  margin-top: auto;
+}
 
-      .navbar .logo {
-        position: relative;
-        left: 0;
-        margin-bottom: 10px;
-        text-align: center;
-      }
+.particles {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
 
-      .navbar a {
-        width: 100%;
-        text-align: center;
-      }
-    }
+.particle {
+  position:absolute;
+  width:5px;
+  height:5px;
+  background-color: rgba(179,19,19,0.3);
+  border-radius:50%;
+  transform: translateY(-150px);
+  animation: fall linear infinite;
+}
 
-    .horizontal-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
+@keyframes fall {
+  0% {transform: translateY(-150px); opacity:0;}
+  25% {opacity:1;}
+  100% {transform: translateY(110vh); opacity:0;}
+}
 
-    @media screen and (max-width: 768px) {
-      .horizontal-buttons {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+@media screen and (max-width:1024px){
+  .navbar {flex-direction:column; align-items:center; padding:10px;}
+  .navbar .logo {margin-bottom:10px;}
+  .navbar a {width:100%; text-align:center;}
+}
 
-      .horizontal-buttons a {
-        flex: 1 1 calc(25% - 1px);
-        text-align: center;
-      }
-
-      .teste-button {
-        margin-top: 20px;
-        text-align: center;
-      }
-    }
+@media screen and (max-width:768px){
+  .horizontal-buttons a {flex:1 1 calc(25% - 1px); text-align:center;}
+  .teste-button {margin-top:20px; text-align:center;}
+}
 </style>
-
 </head>
 <body>
 
-  <div class="navbar">
-    <div class="logo">Pássaro de Hermes</div>
-    <a href="http://allucard.shop">Início</a>
-    <a href="http://allucard.shop/builds">Builds</a>
-    <a href="http://allucard.shop/animais">Animais</a>
-    <a href="http://allucard.shop/specs">Especializações</a>
+<div class="navbar">
+  <div class="logo" id="logo-text" data-en="Bird of Hermes" data-pt="Pássaro de Hermes">Pássaro de Hermes</div>
+  <div class="navbar-links">
+    <a href="#" data-en="Home" data-pt="Início">Início</a>
+    <a href="#" data-en="Builds" data-pt="Builds">Builds</a>
+    <a href="#" data-en="Specializations" data-pt="Especializações">Especializações</a>
   </div>
+  <div class="lang-switch">
+    <img id="ptBtn" src="https://flagcdn.com/w40/br.png" alt="Português">
+    <img id="enBtn" src="https://flagcdn.com/w40/us.png" alt="English">
+  </div>
+</div>
 
-  <div class="content" id="inicio">
-    <h1>Bem-vindo ao portal definitivo para fãs de Once Human!</h1>
-    <p>Aqui, você terá acesso às últimas notícias, guias detalhados, análises e gameplays de Once Human. Seja iniciante em busca de dicas ou veterano atrás das melhores estratégias, este é o lugar ideal. Fique por dentro de atualizações, eventos e segredos do mundo pós-apocalíptico!</p>
-    <div class="button-container">
-      <div class="horizontal-buttons">
-        <a href="https://www.youtube.com/@Nosferatu_Allucard/featured">Youtube</a>
-        <a href="https://twitch.tv/nosferatu_allucard">Twitch</a>
-        <a href="https://discord.gg/sB28jry8VR">Discord</a>
-        <a href="https://x.com/053Alucard">Twitter (X)</a>
+<div class="content" id="inicio">
+  <h1 data-en="Welcome to the ultimate portal for Once Human fans!" data-pt="Bem-vindo ao portal definitivo para fãs de Once Human!">Bem-vindo ao portal definitivo para fãs de Once Human!</h1>
+  <p data-en="News, guides, and gameplay for Once Human. Everything you need in one place!" data-pt="Notícias, guias e gameplays de Once Human. Para iniciantes ou veteranos, tudo em um só lugar!">Notícias, guias e gameplays de Once Human. Para iniciantes ou veteranos, tudo em um só lugar!</p>
+
+  <div class="video-container">
+    <h2 data-en="Latest Video" data-pt="Último vídeo">Último vídeo</h2>
+    <a href="https://youtu.be/hMuccjYc37U?si=hc9ZwsCZZX9cbma2" target="_blank">
+      <img src="https://img.youtube.com/vi/hMuccjYc37U/maxresdefault.jpg" alt="Último vídeo" data-en-alt="Latest video" data-pt-alt="Último vídeo">
+      <div class="play-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24">
+          <path d="M3 22v-20l18 10-18 10z"/>
+        </svg>
       </div>
-      <a href="https://discord.gg/sB28jry8VR" class="teste-button">Consultoria Privada</a>
-    </div>
-    
-    <!-- Seção de vídeo -->
-    <div class="video-container">
-      <h2>Último vídeo</h2>
-      <a href="https://youtu.be/idT8QR2jsuU?si=Ds4P5ACcurSfhY1l" target="_blank">
-        <img src="https://img.youtube.com/vi/idT8QR2jsuU/maxresdefault.jpg" alt="Último vídeo">
-        <div class="play-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24">
-            <path d="M3 22v-20l18 10-18 10z"/>
-          </svg>
-        </div>
-      </a>
-    </div>
+    </a>
   </div>
 
-  <!-- Rodapé -->
-  <footer>
-    © Pássaro de Hermes. Todos os direitos reservados.
-  </footer>
+  <div class="button-container">
+    <a href="#" class="teste-button" data-en="Private Consulting" data-pt="Consultoria Privada">Consultoria Privada</a>
+    <div class="horizontal-buttons">
+      <a href="#" data-en="Youtube" data-pt="Youtube">Youtube</a>
+      <a href="#" data-en="Twitch" data-pt="Twitch">Twitch</a>
+      <a href="#" data-en="Discord" data-pt="Discord">Discord</a>
+      <a href="#" data-en="Twitter (X)" data-pt="Twitter (X)">Twitter (X)</a>
+    </div>
+  </div>
+</div>
 
-  <!-- Partículas -->
-  <div class="particles" id="particles"></div>
+<footer data-en="© Bird of Hermes. All rights reserved." data-pt="© Pássaro de Hermes. Todos os direitos reservados.">© Pássaro de Hermes. Todos os direitos reservados.</footer>
 
-  <script>
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 100; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.left = Math.random() * 100 + 'vw';
-      particle.style.animationDuration = Math.random() * 5 + 3 + 's';
-      particle.style.animationDelay = Math.random() * 5 + 's';
-      particlesContainer.appendChild(particle);
+<div class="particles" id="particles"></div>
+
+<script>
+// Particles
+const particlesContainer = document.getElementById('particles');
+for(let i=0;i<100;i++){
+  const particle = document.createElement('div');
+  particle.classList.add('particle');
+  particle.style.left = Math.random()*100 + 'vw';
+  particle.style.animationDuration = Math.random()*5 + 3 + 's';
+  particle.style.animationDelay = Math.random()*5 + 's';
+  particlesContainer.appendChild(particle);
+}
+
+// Language
+const ptBtn = document.getElementById('ptBtn');
+const enBtn = document.getElementById('enBtn');
+
+function setLanguage(lang){
+  localStorage.setItem('lang', lang);
+  if(lang==='pt'){
+    ptBtn.classList.add('active'); enBtn.classList.remove('active');
+  } else {
+    enBtn.classList.add('active'); ptBtn.classList.remove('active');
+  }
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    if(lang==='en'){
+      el.textContent = el.getAttribute('data-en');
+      if(el.tagName==='IMG' && el.hasAttribute('data-en-alt')) el.alt = el.getAttribute('data-en-alt');
+    } else {
+      el.textContent = el.getAttribute('data-pt');
+      if(el.tagName==='IMG' && el.hasAttribute('data-pt-alt')) el.alt = el.getAttribute('data-pt-alt');
     }
-  </script>
-  
+  });
+}
+
+// Event listeners
+ptBtn.addEventListener('click', ()=>setLanguage('pt'));
+enBtn.addEventListener('click', ()=>setLanguage('en'));
+
+// Load saved language
+const savedLang = localStorage.getItem('lang') || 'pt';
+setLanguage(savedLang);
+</script>
+
 </body>
 </html>
