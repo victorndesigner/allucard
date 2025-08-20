@@ -1,230 +1,311 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Pássaro de Hermes">
-  <meta property="og:description" content="Nosferatu_Allucard">
-  <title>MINHAS ESPECIALIZAÇÕES</title>
-  <link rel="icon" href="img/icon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://allucard.shop/">
+  <meta property="og:site_name" content="Pássaro de Hermes">
+  <meta property="og:title" content="Nosferatu Allucard">
+  <meta property="og:description" content="Criador Oficial do Once Human!">
+  <meta property="og:image" content="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image:alt" content="Banner Nosferatu Allucard">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
+
+  <title>Especializações do Allucard</title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       background-color: #181818;
       color: #ffffff;
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
       text-align: center;
     }
 
-    .back-btn {
-      background-color: #222222;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      font-size: 14px;
-      font-weight: bold;
+    .top-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 10px;
+    }
+
+    .lang-switch {
+      position: absolute;
+      left: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .lang-switch img {
+      width: 28px;
+      height: 20px;
       cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      margin-bottom: -2px;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      transition: border 0.3s;
     }
 
-    .back-btn:hover {
-      background-color: #b92323;
+    .lang-switch img.active {
+      border: 2px solid #b92323;
     }
 
-    .highlight {
-      color: #b92323;
-      font-weight: medium;
+    .voltar-btn {
+      background-color: rgba(34, 34, 34, 0.9);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .voltar-btn:hover {
+      background-color: #555;
+      transform: translateY(-2px);
+    }
+
+    .servidor {
+      font-size: 14px;
+      margin-top: 15px;
     }
 
     h1 {
-      font-family: Arial, sans-serif;
-      font-size: 2em;
-      font-weight: bold;
-      color: #ffffff;
-      margin-bottom: 5px;
-    }
-
-    .subtitle {
-      font-size: 1em;
-      font-weight: medium;
-      color: #ffffff;
-      background-color: #1f1818;
-      padding: 5px 15px;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 2px;
+      margin-top: 5px;
       margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     }
 
-    .category {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .bloco {
       background-color: #222;
       padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 910px;
       position: relative;
+      box-shadow: 0 0 10px #a5a5a557;
     }
 
-    h2 {
-      color: #ffffff;
-      font-weight: medium;
-      margin: 0;
+    .imagem-bloco {
+      width: 100%;
+      border-radius: 15px;
+      border: 3px solid #e22b2b;
+      aspect-ratio: 1920 / 1080;
+      object-fit: cover;
     }
 
-    .copy-btn {
-      background-color: #b92323;
-      color: #ffffff;
-      border: none;
-      border-radius: 4px;
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
-      position: absolute;
-      right: 15px;
-      top: 15px;
-    }
-
-    .copy-btn:hover {
-      background-color: #531010;
-    }
-
-    .item {
+    .placeholder {
+      width: 100%;
+      aspect-ratio: 1920 / 1080;
+      background-color: #272727;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      border: 3px dashed #e22b2b;
+      font-size: 18px;
       font-weight: bold;
-      color: #dcdcdc;
-      margin-bottom: 5px;
     }
 
-    .item span {
-      color: #b92323;
-    }
-
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .particle {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background-color: rgba(136, 14, 14, 0.3);
-      border-radius: 50%;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-150px);
-        opacity: 0;
-      }
-      25% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-    }
-
-    footer {
+    .nome-id {
+      font-weight: bold;
+      margin-bottom: 8px;
       text-align: center;
-      width: 100%;
-      padding: 15px 0;
-      background-color: rgba(34, 34, 34, 0.9);
-      color: #dcdcdc;
-      position: relative;
-      margin-top: 20px;
-    }
-    
-        @media screen and (max-width: 768px) {
-      .category {
-        text-align: center;
-      }
-
-      .copy-btn {
-        position: static;
-        display: block;
-        margin: 10px auto 10px;
-        text-align: center;
-      }
-
-      h2 {
-        margin-bottom: 5px;
-      }
     }
 
+    .btn-copiar {
+      background-color: #e22b2b;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      transform: translateY(-100%);
+    }
+
+    .btn-copiar:hover {
+      background-color: rgb(193, 33, 33);
+    }
+
+    .btn-visualizar {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12px;
+      color: white;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .creditos {
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    .creditos a {
+      color: #e22b2b;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .creditos a:hover {
+      color: #b080ff;
+    }
+
+    @media (max-width: 950px) {
+      .bloco {
+        width: 95%;
+      }
+    }
   </style>
+
+  <script src="info.js"></script>
 </head>
 <body>
-  <div class="particles" id="particles"></div>
-  <button class="back-btn" onclick="window.location.href='http://allucard.shop'">VOLTAR</button>
 
-  <div class="main-container">
-    <h1>MINHAS <span class="highlight">ESPECIALIZAÇÕES</span></h1>
-    <h2 class="subtitle">PVE01-XOO74 --- Oráculo Lunar</h2>
-
-    <div class="category">
-      <h2 id="Nosferatu_Allucard">Nosferatu_Allucard</h2>
-      <button class="copy-btn" onclick="copiarTexto('Nosferatu_Allucard')">COPIAR ID</button>
-      <p class="item">PLATAFORMA DE POEIRA ESTELAR</p>
-      <p class="item">BROCA CAÇADORA DE TESOUROS</p>
-      <p class="item">PROCESSAMENTO DE ÓLEO</span></p>
-      <p class="item">ESTRUTURAS DE PEDRA</p>
-      <p class="item">FOICE DE COLHEIRA</span></p>
-      <p class="item">FOGÃO <span>2 BUFFS</span></p>
-      <p class="item">FACA DO CHEF</p>
-      <p class="item">RED PLASMA</p>
+  <div class="top-line">
+    <div class="lang-switch">
+      <img id="ptBtn" src="https://flagcdn.com/w40/br.png" alt="Português">
+      <img id="enBtn" src="https://flagcdn.com/w40/us.png" alt="English">
     </div>
+    <button class="voltar-btn" onclick="history.back()">Voltar</button>
+  </div>
 
-    <div class="category">
-      <h2 id="BirdofHermes">BirdofHermes</h2>
-      <button class="copy-btn" onclick="copiarTexto('BirdofHermes')">COPIAR ID</button>
-      <p class="item">BANCADA DE SUPRIMENTOS <span>3 BUFFS</span></p>
-      <p class="item">PLATAFORMA DE CORTE DA SORTE</p>
-      <p class="item">PICARETA DE OURO E DE PRATA</p>
-      <p class="item">EXPANSÃO DE MOCHILA</p>
-      <p class="item">GELADEIRA PORTÁTIL</p>
-      <p class="item">COMPOSTEIRA</p>
-    </div>
+  <div class="servidor" id="servidor-nome"></div>
+  <h1 id="titulo"><span style="color: #e22b2b;">Specs</span> <span>Allucard</span></h1>
 
-  <footer>
-    © Pássaro de Hermes. Todos os direitos reservados.
-  </footer>
+  <div class="container" id="container-blocos"></div>
+
+  <div class="creditos" id="creditos">
+    <span>By </span><a href="https://www.youtube.com/@Nosferatu_Allucard" target="_blank">Pássaro de Hermes</a>
+  </div>
 
   <script>
-    function copiarTexto(id) {
-      const texto = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(texto).then(() => {
-        alert(`ID "${texto}" copiado!`);
-      }).catch(err => {
-        console.error('Erro ao copiar: ', err);
+    const translations = {
+      pt: {
+        title: "<span style='color: #e22b2b;'>Especializações</span> <span>Allucard</span>",
+        placeholder: "allucard ainda vai atualizar...",
+        visualizar: "Visualizar",
+        copiar: "Copiar ID",
+        creditos: "<span>By </span><a href='https://www.youtube.com/@Nosferatu_Allucard' target='_blank'>Pássaro de Hermes</a>"
+      },
+      en: {
+        title: "<span style='color: #e22b2b;'>Specs</span> <span>Allucard</span>",
+        placeholder: "allucard will update soon...",
+        visualizar: "View",
+        copiar: "Copy ID",
+        creditos: "<span>By </span><a href='https://www.youtube.com/@Nosferatu_Allucard' target='_blank'>Bird of Hermes</a>"
+      }
+    };
+  
+    let currentLang = localStorage.getItem("lang") || "pt";
+  
+    function switchLang(lang) {
+      currentLang = lang;
+      localStorage.setItem("lang", lang);
+  
+      document.getElementById("titulo").innerHTML = translations[lang].title;
+      document.getElementById("creditos").innerHTML = translations[lang].creditos;
+  
+      container.innerHTML = "";
+      [...blocosInfo]
+        .sort((a, b) => (b.mostrar ? 1 : 0) - (a.mostrar ? 1 : 0))
+        .forEach(info => {
+          const bloco = criarBloco(info);
+          container.appendChild(bloco);
+        });
+  
+      document.getElementById("ptBtn").classList.toggle("active", lang === "pt");
+      document.getElementById("enBtn").classList.toggle("active", lang === "en");
+    }
+  
+    const servidor = typeof servidorNome !== 'undefined' ? servidorNome : "Servidor Desconhecido";
+    document.getElementById("servidor-nome").textContent = servidor;
+  
+    function copiarID(id) {
+      navigator.clipboard.writeText(id).then(() => {
+        alert((currentLang === "pt" ? "ID copiado: " : "Copied ID: ") + id);
       });
     }
+  
+    function visualizarImagem(src) {
+      window.open(src, '_blank');
+    }
+  
+    function criarBloco({ nome, id, mostrar, imagem }) {
+      const bloco = document.createElement("div");
+      bloco.className = "bloco";
+  
+      const nomeDiv = document.createElement("div");
+      nomeDiv.className = "nome-id";
+      nomeDiv.textContent = nome;
+      bloco.appendChild(nomeDiv);
+  
+      if (mostrar) {
+        const btnCopiar = document.createElement("button");
+        btnCopiar.className = "btn-copiar";
+        btnCopiar.textContent = translations[currentLang].copiar;
+        btnCopiar.onclick = () => copiarID(id);
+        bloco.appendChild(btnCopiar);
+      }
+  
+      const imgContainer = document.createElement("div");
+      if (mostrar) {
+        const img = document.createElement("img");
+        img.src = imagem;
+        img.alt = nome;
+        img.className = "imagem-bloco";
+        imgContainer.appendChild(img);
+      } else {
+        const placeholder = document.createElement("div");
+        placeholder.className = "placeholder";
+        placeholder.textContent = translations[currentLang].placeholder;
+        imgContainer.appendChild(placeholder);
+      }
+      bloco.appendChild(imgContainer);
+  
+      if (mostrar) {
+        const btnVisualizar = document.createElement("div");
+        btnVisualizar.className = "btn-visualizar";
+        btnVisualizar.textContent = translations[currentLang].visualizar;
+        btnVisualizar.onclick = () => visualizarImagem(imagem);
+        bloco.appendChild(btnVisualizar);
+      }
+  
+      return bloco;
+    }
+  
+    const container = document.getElementById("container-blocos");
+    switchLang(currentLang);
+  
+    document.getElementById("ptBtn").addEventListener("click", () => switchLang("pt"));
+    document.getElementById("enBtn").addEventListener("click", () => switchLang("en"));
   </script>
-
-<script>
-const particlesContainer = document.getElementById('particles');
-
-for (let i = 0; i < 100; i++) {
-  const particle = document.createElement('div');
-  particle.classList.add('particle');
-  particle.style.left = Math.random() * 100 + 'vw';
-  particle.style.animationDuration = Math.random() * 5 + 3 + 's';
-  particle.style.animationDelay = `-${Math.random() * 5}s`;
-  particlesContainer.appendChild(particle);
-}
-</script>
-
 </body>
 </html>
