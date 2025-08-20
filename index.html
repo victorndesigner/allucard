@@ -217,9 +217,26 @@ footer {
 }
 
 @media screen and (max-width:1024px){
-  .navbar {flex-direction:column; align-items:center; padding:10px;}
-  .navbar .logo {margin-bottom:10px;}
-  .navbar a {width:100%; text-align:center;}
+  .navbar {
+    flex-direction:column;
+    align-items:center;
+    padding:10px;
+  }
+  .navbar .logo {
+    margin-bottom:10px;
+  }
+  .navbar a {
+    width:100%;
+    text-align:center;
+  }
+
+  .lang-switch {
+    margin-top: 10px;
+  }
+
+  .button-container {
+    margin-bottom: 20px;
+  }
 }
 
 @media screen and (max-width:768px){
@@ -232,12 +249,10 @@ footer {
     text-align:center;
   }
 
-  /* espaçamento entre bandeiras e links */
   .lang-switch {
     margin-top: 10px;
   }
 
-  /* espaçamento entre os botões e o footer */
   .button-container {
     margin-bottom: 20px;
   }
@@ -292,7 +307,6 @@ footer {
 <div class="particles" id="particles"></div>
 
 <script>
-// Particles
 const particlesContainer = document.getElementById('particles');
 for(let i=0;i<100;i++){
   const particle = document.createElement('div');
@@ -303,7 +317,6 @@ for(let i=0;i<100;i++){
   particlesContainer.appendChild(particle);
 }
 
-// Language
 const ptBtn = document.getElementById('ptBtn');
 const enBtn = document.getElementById('enBtn');
 
@@ -325,11 +338,9 @@ function setLanguage(lang){
   });
 }
 
-// Event listeners
 ptBtn.addEventListener('click', ()=>setLanguage('pt'));
 enBtn.addEventListener('click', ()=>setLanguage('en'));
 
-// Load saved language
 const savedLang = localStorage.getItem('lang') || 'pt';
 setLanguage(savedLang);
 </script>

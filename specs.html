@@ -43,7 +43,7 @@
 
     .lang-switch {
       position: absolute;
-      left: 20px;
+      left: 50px;
       display: flex;
       gap: 10px;
       align-items: center;
@@ -75,13 +75,45 @@
     }
 
     .voltar-btn:hover {
-      background-color: #555;
+      background-color: #961a1a;
       transform: translateY(-2px);
+    }
+
+    /* Ajuste de responsividade */
+    @media screen and (max-width:1024px) {
+      .top-line {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .lang-switch {
+        position: static;
+        justify-content: center;
+        margin-top: 5px;
+      }
+      .voltar-btn {
+        margin-top: 10px;
+      }
+    }
+
+    @media screen and (max-width:768px) {
+      .top-line {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .lang-switch {
+        position: static;
+        justify-content: center;
+        margin-top: 5px;
+      }
+      .voltar-btn {
+        margin-top: 10px;
+      }
     }
 
     .servidor {
       font-size: 14px;
       margin-top: 15px;
+      margin-bottom: 12px;
     }
 
     h1 {
@@ -198,7 +230,7 @@
   </div>
 
   <div class="servidor" id="servidor-nome"></div>
-  <h1 id="titulo"><span style="color: #e22b2b;">Specs</span> <span>Allucard</span></h1>
+  <h1 id="titulo"><span style="color: #e22b2b;">ESPECIALIZAÇÕES</span> <span>ALLUCARD</span></h1>
 
   <div class="container" id="container-blocos"></div>
 
@@ -209,14 +241,14 @@
   <script>
     const translations = {
       pt: {
-        title: "<span style='color: #e22b2b;'>Especializações</span> <span>Allucard</span>",
+        title: "<span style='color: #e22b2b;'>ESPECIALIZAÇÕES</span> <span>ALLUCARD</span>",
         placeholder: "allucard ainda vai atualizar...",
         visualizar: "Visualizar",
         copiar: "Copiar ID",
         creditos: "<span>By </span><a href='https://www.youtube.com/@Nosferatu_Allucard' target='_blank'>Pássaro de Hermes</a>"
       },
       en: {
-        title: "<span style='color: #e22b2b;'>Specs</span> <span>Allucard</span>",
+        title: "<span style='color: #e22b2b;'>SPECS</span> <span>ALLUCARD</span>",
         placeholder: "allucard will update soon...",
         visualizar: "View",
         copiar: "Copy ID",
