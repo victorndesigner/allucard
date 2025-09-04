@@ -210,6 +210,31 @@
       color: #b080ff;
     }
 
+    .particles {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+    }
+
+    .particle {
+      position:absolute;
+      width:5px;
+      height:5px;
+      background-color: rgba(179,19,19,0.3);
+      border-radius:50%;
+      transform: translateY(-150px);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {transform: translateY(-150px); opacity:0;}
+      25% {opacity:1;}
+      100% {transform: translateY(110vh); opacity:0;}
+    }
+
     @media (max-width: 950px) {
       .bloco {
         width: 95%;
@@ -238,7 +263,18 @@
     <span>By </span><a href="https://www.youtube.com/@Nosferatu_Allucard" target="_blank">Pássaro de Hermes</a>
   </div>
 
+  <div class="particles" id="particles"></div>
+
   <script>
+  const particlesContainer = document.getElementById('particles');
+  for(let i=0;i<100;i++){
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = Math.random()*100 + 'vw';
+    particle.style.animationDuration = Math.random()*5 + 3 + 's';
+    particle.style.animationDelay = Math.random()*5 + 's';
+    particlesContainer.appendChild(particle);
+  }
     const translations = {
       pt: {
         title: "<span style='color: #e22b2b;'>ESPECIALIZAÇÕES</span> <span>ALLUCARD</span>",
