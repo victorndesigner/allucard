@@ -1,497 +1,273 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Builds do Canal - Nosferatu Allucard</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:url" content="https://allucard.shop/">
-  <meta property="og:site_name" content="Pássaro de Hermes">
-  <meta property="og:title" content="Nosferatu Allucard">
-  <meta property="og:description" content="Criador Oficial do Once Human!">
-  <meta property="og:image" content="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="1200">
-  <meta property="og:image:alt" content="Banner Nosferatu Allucard">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
+  <link rel="stylesheet" href="assets/style.css">
 
-  <title>Builds do Canal</title>
-  <link rel="icon" href="img/icon.png">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1a1a1a;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      box-sizing: border-box;
-      overflow-x: hidden;
-    }
-    
-    .navbar {
-      width: 100%;
+    .search-area {
+      margin-bottom: 30px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 10px 40px;
-      background-color: rgba(34, 34, 34, 0.9);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      position: relative;
-      box-sizing: border-box;
+      gap: 15px;
     }
 
-    .navbar a {
-      color: #ffffff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-      background-color: #222222;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-      transition: background-color 0.3s;
-    }
-
-    .navbar a:hover {
-      background-color: #961a1a;
-    }
-
-    .lang-switch {
-      position: absolute;
-      left: 50px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .lang-switch img {
-      width: 32px;
-      height: 22px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      border-radius: 4px;
-      transition: border 0.3s;
-    }
-
-    .lang-switch img.active {
-      border: 2px solid #b92323;
-    }
-
-    .title {
-      font-size: 2.5em;
-      text-transform: uppercase;
-      color: #ffffff;
-      margin-bottom: 10px;
-      text-align: center;
-      padding: 0 10px;
-      box-sizing: border-box;
-    }
-
-    .title span {
-      color: #b92323;
-    }
-
-    .search-bar {
-      width: 180px;
-      margin: 10px 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 10px 15px;
-      border-radius: 20px;
-      border: 2px solid #b92323;
-      font-size: 1em;
-      background-color: #333333;
-      color: #ffffff;
-    }
-
-    .fav-toggle {
-      margin: 10px 0;
-      padding: 8px 15px;
-      background: #222;
-      border: 1px solid #b92323;
-      border-radius: 20px;
+    #searchInput {
+      padding: 15px 30px;
+      border-radius: 50px;
+      border: 1px solid var(--vidro-borda);
+      background: var(--vidro-bg);
       color: #fff;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .fav-toggle:hover {
-      background: #b92323;
-    }
-
-    .favorites {
       width: 100%;
-      max-width: 600px;
-      margin: 10px 0;
-      padding: 15px;
-      background: rgba(34,34,34,0.95);
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-      display: none;
-      box-sizing: border-box;
+      max-width: 450px;
+      outline: none;
+      transition: var(--transicao);
+      backdrop-filter: blur(10px);
     }
 
-    .favorites h2 {
-      text-align: center;
-      margin-bottom: 10px;
-      color: #b92323;
+    #searchInput:focus {
+      border-color: var(--cor-primaria);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
     }
 
-    .video-container {
-      width: 100%;
-      max-width: 600px;
-      text-align: center;
-      margin: 20px auto;
-      padding: 0 10px;
-      box-sizing: border-box;
-      transition: opacity 0.3s ease;
-    }
-
-    .video-container.fade {
-      opacity: 0;
-    }
-
-    .video-wrapper {
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto 20px;
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 3px solid #b92323;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-      padding-bottom: 10px;
-      box-sizing: border-box;
-    }
-
-    .video-wrapper h2 {
-      margin: 10px 0 5px;
+    .fav-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--vidro-borda);
       color: #fff;
-      padding: 0 5px;
-      box-sizing: border-box;
+      padding: 10px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: var(--transicao);
     }
 
-    .badge {
+    .fav-toggle-btn:hover,
+    .fav-toggle-btn.active {
+      background: var(--cor-primaria);
+      border-color: var(--cor-primaria);
+      box-shadow: var(--glow-primario);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .updated-badge {
       display: inline-block;
-      margin-bottom: 10px;
-      padding: 3px 8px;
-      background-color: #b92323;
-      color: white;
-      font-size: 0.8em;
-      font-weight: bold;
-      border-radius: 6px;
+      color: #fff !important;
+      background: var(--cor-primaria);
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      margin: 15px auto 0;
+      text-transform: uppercase;
+      box-shadow: var(--glow-primario);
+      letter-spacing: 1px;
     }
 
-    .video-wrapper img {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-    }
-
-    .video-wrapper .play-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 60px;
-      color: white;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-
-    .video-wrapper:hover .play-icon {
-      opacity: 1;
-    }
-
-    .fav-btn {
-      margin-top: 8px;
-      padding: 5px 10px;
-      background: #222;
-      border: 1px solid #b92323;
-      border-radius: 6px;
-      color: #fff;
-      cursor: pointer;
-      font-size: 0.9em;
-      transition: background 0.3s;
-    }
-
-    .fav-btn.active {
-      background: #b92323;
-    }
-
-    footer {
-      text-align: center;
-      width: 100%;
-      padding: 15px 0;
-      background-color: rgba(34, 34, 34, 0.9);
-      color: #dcdcdc;
+    .fav-btn-action {
       margin-top: 20px;
-      box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--vidro-borda);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transicao);
     }
 
-    @media screen and (max-width:1024px){
-      .navbar {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-      }
-      .navbar .logo {
-        margin-bottom: 10px;
-      }
-      .navbar a {
-        text-align: center;
-        margin-top: 10px;
-      }
-      .lang-switch {
-        margin-top: 10px;
-        position: static;
-        justify-content: center;
-      }
-      .button-container {
-        margin-bottom: 20px;
-      }
-      .video-container {
-        padding: 0 8px;
-      }
+    .fav-btn-action.is-fav {
+      background: var(--cor-primaria);
+      border-color: var(--cor-primaria);
     }
 
-    .particles {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      pointer-events:none;
+    #favoritesSection {
+      display: none;
+      margin-bottom: 60px;
+      padding-bottom: 50px;
+      border-bottom: 2px dashed rgba(255, 0, 0, 0.2);
     }
 
-    .particle {
-      position:absolute;
-      width:5px;
-      height:5px;
-      background-color: rgba(179,19,19,0.3);
-      border-radius:50%;
-      transform: translateY(-150px);
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% {transform: translateY(-150px); opacity:0;}
-      25% {opacity:1;}
-      100% {transform: translateY(110vh); opacity:0;}
-    }
-
-    @media screen and (max-width:768px){
-      .lang-switch {
-        margin-top: 10px;
-      }
-      .button-container {
-        margin-bottom: 20px;
-      }
-      .video-container {
-        padding: 0 5px;
-      }
+    .section-title {
+      color: var(--cor-primaria);
+      margin-bottom: 35px;
+      font-size: 2rem;
+      text-transform: uppercase;
     }
   </style>
 </head>
+
 <body>
-  <div class="navbar">
-    <div class="lang-switch">
-      <img id="ptBtn" src="https://flagcdn.com/w40/br.png" alt="Português" class="active">
-      <img id="enBtn" src="https://flagcdn.com/w40/us.png" alt="English">
+
+  <div id="preloader">
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
-    <a id="backButton" href="/">Voltar</a>
-  </div>  
-
-  <h1 class="title" id="pageTitle">BUILDS DO <span>CANAL</span></h1>
-
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Pesquise um título...">
   </div>
 
-  <button class="fav-toggle" id="favToggle">⭐ Favoritos</button>
-  <div class="favorites" id="favorites">
-    <h2 id="favTitle">Favoritos</h2>
-    <div id="favList"></div>
+  <header class="navbar">
+    <a href="index.html" class="logo" data-pt="Pássaro de Hermes" data-en="Bird of Hermes">Pássaro de Hermes</a>
+
+    <!-- Desktop Menu -->
+    <nav class="navbar-links desktop-only">
+      <a href="index.html" data-pt="Início" data-en="Home">Início</a>
+      <a href="builds.html" class="active" data-pt="Builds" data-en="Builds">Builds</a>
+      <a href="specs.html" data-pt="Especializações" data-en="Specializations">Especializações</a>
+    </nav>
+
+    <div class="lang-switch desktop-only">
+      <span id="ptBtn" class="lang-btn">BR</span>
+      <span id="enBtn" class="lang-btn">US</span>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="hamburger-menu" aria-label="Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </header>
+
+  <!-- Mobile Menu Sidebar -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu-sidebar">
+    <button class="close-menu-btn">&times;</button>
+    <nav class="mobile-nav-links">
+      <a href="index.html" data-pt="Início" data-en="Home">Início</a>
+      <a href="builds.html" class="active" data-pt="Builds" data-en="Builds">Builds</a>
+      <a href="specs.html" data-pt="Especializações" data-en="Specializations">Especializações</a>
+    </nav>
+    <div class="mobile-lang-switch">
+      <span id="ptBtnMobile" class="lang-btn">BR</span>
+      <span id="enBtnMobile" class="lang-btn">US</span>
+    </div>
   </div>
 
-  <div class="video-container" id="videoList"></div>
+  <main class="content">
+    <h1 data-pt="BUILDS DO <span>CANAL</span>" data-en="CHANNEL <span>BUILDS</span>">BUILDS DO <span>CANAL</span></h1>
 
-  <footer id="footerText">
-    © Pássaro de Hermes. Todos os direitos reservados.
+    <div class="search-area">
+      <input type="text" id="searchInput" placeholder="Pesquise um título..." data-pt="Pesquise um título..."
+        data-en="Search a title...">
+      <button class="fav-toggle-btn" id="favToggle" data-pt="Favoritos" data-en="Favorites">⭐ Favoritos</button>
+    </div>
+
+    <section id="favoritesSection">
+      <h2 class="section-title" data-pt="Seus Favoritos" data-en="Your Favorites">Seus Favoritos</h2>
+      <div id="favList" class="video-grid"></div>
+    </section>
+
+    <section id="allVideos">
+      <div id="videoList" class="video-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span data-pt="&copy; Pássaro de Hermes. Todos os direitos reservados."
+      data-en="&copy; Bird of Hermes. All rights reserved.">
+      &copy; Pássaro de Hermes. Todos os direitos reservados.
+    </span>
+    <a href="https://www.youtube.com/@Nosferatu_Allucard" target="_blank" class="footer-mention">@Nosferatu_Allucard</a>
   </footer>
 
   <div class="particles" id="particles"></div>
 
+  <script src="assets/videos.js"></script>
+  <script src="assets/script.js"></script>
   <script>
-  const particlesContainer = document.getElementById('particles');
-  for(let i=0;i<100;i++){
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    particle.style.left = Math.random()*100 + 'vw';
-    particle.style.animationDuration = Math.random()*5 + 3 + 's';
-    particle.style.animationDelay = Math.random()*5 + 's';
-    particlesContainer.appendChild(particle);
-  }
-
-    const translations = {
-      pt: {
-        back: "Voltar",
-        title: "BUILDS DO <span>CANAL</span>",
-        search: "Pesquise um título...",
-        footer: "© Pássaro de Hermes. Todos os direitos reservados.",
-        updated: "ATUALIZADO",
-        favTitle: "Favoritos",
-        favAdd: "Favoritar",
-        favRemove: "Remover",
-        favToggle: "⭐ Favoritos"
-      },
-      en: {
-        back: "Back",
-        title: "CHANNEL <span>BUILDS</span>",
-        search: "Search a title...",
-        footer: "© Pássaro de Hermes. All rights reserved.",
-        updated: "UPDATED",
-        favTitle: "Favorites",
-        favAdd: "Favorite",
-        favRemove: "Remove",
-        favToggle: "⭐ Favorites"
-      }
-    };
-
-    let currentLang = localStorage.getItem("lang") || "pt";
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    const videos = [
-      { title: "KAM OLHAR ABISSAL", url: "https://www.youtube.com/watch?v=0DAVnTcIAb4", updated: false },
-      { title: "KV-SBR MANDÍBULAS PEQUENAS", url: "https://www.youtube.com/watch?v=waFskcmDWws", updated: false },
-      { title: "ACS12 CORROSÃO", url: "https://www.youtube.com/watch?v=9veowpLLLiI", updated: false },
-      { title: "ARAUTO DA PERDIÇÃO / DOOMBRINGER", url: "https://www.youtube.com/watch?v=geRmYRVJIRg", updated: false },
-      { title: "BESTA PULSO CRÍTICO", url: "https://www.youtube.com/watch?v=1GzQjmNiiTE", updated: true },
-      { title: "HAMR BRAHMINY", url: "https://www.youtube.com/watch?v=52Sc817XS8o", updated: false },
-      { title: "BUILD SOCR DESTRUIDORA DE MANIBUS", url: "https://www.youtube.com/watch?v=tukeynNmnK4", updated: false },
-      { title: "KVD BUM! BUM!", url: "https://www.youtube.com/watch?v=nPu2yzRT-CY", updated: true },
-      { title: "MPS5 KUMAWINK", url: "https://www.youtube.com/watch?v=qhWBe_We34k", updated: false },
-      { title: "M416 ANÁBASE", url: "https://www.youtube.com/watch?v=rFGzWsjrH3o", updated: false },
-      { title: "R-500 LEMBRANÇAS / MEMENTO", url: "https://www.youtube.com/watch?v=QcrYU1NBDBA", updated: false },
-      { title: "MPS5 PRIMAL RAGE", url: "https://www.youtube.com/watch?v=PtkbZKLbjWQ", updated: false },
-      { title: "BESTA PULSO CRÍTICO", url: "https://www.youtube.com/watch?v=f_1fdSl7PQc", updated: false },
-      { title: "KVD BUM! BUM!", url: "https://www.youtube.com/watch?v=NlMHcw81DKg", updated: false },
-      { title: "AWS.338 BINGO / DE-50 INCÊNDIO", url: "https://www.youtube.com/watch?v=AL7Cb_rdtaY", updated: false },
-      { title: "DE-50 MANDÍBULAS", url: "https://www.youtube.com/watch?v=Et58NxHfaMI", updated: false }
-    ];
-
-    function createVideoElements() {
-      const videoList = document.getElementById("videoList");
-      videoList.classList.add("fade");
-      setTimeout(() => {
-        videoList.innerHTML = "";
-        videos.forEach(video => {
-          const videoWrapper = document.createElement("div");
-          videoWrapper.classList.add("video-wrapper");
-          const isFav = favorites.includes(video.url);
-          videoWrapper.innerHTML = `
-            <h2>${video.title}</h2>
-            ${video.updated ? `<div class="badge">${translations[currentLang].updated}</div>` : ""}
-            <a href="${video.url}" target="_blank">
-              <img src="https://img.youtube.com/vi/${video.url.split('v=')[1]}/maxresdefault.jpg" alt="${video.title}">
-              <div class="play-icon">▶</div>
-            </a>
-            <button class="fav-btn ${isFav ? "active" : ""}" data-url="${video.url}">
-              ${isFav ? translations[currentLang].favRemove : translations[currentLang].favAdd}
-            </button>
-          `;
-          videoList.appendChild(videoWrapper);
-        });
-        videoList.classList.remove("fade");
-        bindFavButtons();
-        renderFavorites();
-      }, 300);
+    // Helper para extrair ID do YouTube de qualquer formato de link
+    function getYouTubeID(url) {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
     }
 
-    function bindFavButtons() {
-      document.querySelectorAll(".fav-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const url = btn.getAttribute("data-url");
-          if (favorites.includes(url)) {
-            favorites = favorites.filter(fav => fav !== url);
-          } else {
-            favorites.push(url);
-          }
-          localStorage.setItem("favorites", JSON.stringify(favorites));
-          createVideoElements();
-        });
-      });
-    }
+    function renderVideos() {
+      if (typeof videos === 'undefined') return;
+      const container = document.getElementById("videoList");
+      const favContainer = document.getElementById("favList");
+      const lang = localStorage.getItem('lang') || 'pt';
 
-    function renderFavorites() {
-      const favList = document.getElementById("favList");
-      favList.innerHTML = "";
-      if (favorites.length === 0) {
-        favList.innerHTML = `<p style="text-align:center; color:#aaa;">(${currentLang === "pt" ? "Nenhum favorito ainda" : "No favorites yet"})</p>`;
-        return;
-      }
-      favorites.forEach(url => {
-        const video = videos.find(v => v.url === url);
-        if (video) {
-          const div = document.createElement("div");
-          div.classList.add("video-wrapper");
-          div.innerHTML = `
-            <h2>${video.title}</h2>
-            <a href="${video.url}" target="_blank">
-              <img src="https://img.youtube.com/vi/${video.url.split('v=')[1]}/maxresdefault.jpg" alt="${video.title}">
-              <div class="play-icon">▶</div>
-            </a>
-          `;
-          favList.appendChild(div);
+      container.innerHTML = "";
+      favContainer.innerHTML = "";
+
+      videos.forEach(video => {
+        const isFav = favorites.includes(video.url);
+        const card = createCard(video, isFav, lang);
+        container.appendChild(card);
+
+        if (isFav) {
+          favContainer.appendChild(createCard(video, true, lang, true));
         }
       });
+
+      document.getElementById("favoritesSection").style.display = favorites.length > 0 && document.getElementById("favToggle").classList.contains("active") ? "block" : "none";
     }
 
-    function switchLang(lang) {
-      currentLang = lang;
-      localStorage.setItem("lang", lang);
-      document.getElementById("backButton").textContent = translations[lang].back;
-      document.getElementById("pageTitle").innerHTML = translations[lang].title;
-      document.getElementById("searchInput").placeholder = translations[lang].search;
-      document.getElementById("footerText").textContent = translations[lang].footer;
-      document.getElementById("favTitle").textContent = translations[lang].favTitle;
-      document.getElementById("favToggle").textContent = translations[lang].favToggle;
-      createVideoElements();
-      document.getElementById("ptBtn").classList.toggle("active", lang === "pt");
-      document.getElementById("enBtn").classList.toggle("active", lang === "en");
+    function createCard(video, isFav, lang, isFavList = false) {
+      const div = document.createElement("div");
+      div.className = "video-card";
+
+      const videoId = getYouTubeID(video.url);
+      const updatedText = lang === 'pt' ? 'ATUALIZADO' : 'UPDATED';
+      const favText = isFav ? (lang === 'pt' ? 'Remover' : 'Remove') : (lang === 'pt' ? 'Favoritar' : 'Favorite');
+
+      div.innerHTML = `
+                <h2>${video.title}</h2>
+                <a href="${video.url}" target="_blank" class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" alt="${video.title}">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24" width="30" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <div style="text-align: center;">
+                    ${video.updated ? `<span class="updated-badge">${updatedText}</span>` : ""}
+                </div>
+                ${!isFavList ? `<button class="fav-btn-action ${isFav ? 'is-fav' : ''}" onclick="toggleFav('${video.url}')">${favText}</button>` : ""}
+            `;
+      return div;
     }
 
-    switchLang(currentLang);
+    window.toggleFav = (url) => {
+      if (favorites.includes(url)) {
+        favorites = favorites.filter(f => f !== url);
+      } else {
+        favorites.push(url);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      renderVideos();
+    };
 
-    document.getElementById("ptBtn").addEventListener("click", () => switchLang("pt"));
-    document.getElementById("enBtn").addEventListener("click", () => switchLang("en"));
+    document.getElementById("favToggle").addEventListener("click", function () {
+      this.classList.toggle("active");
+      renderVideos();
+    });
 
-    document.getElementById("searchInput").addEventListener("input", function() {
-      const searchValue = this.value.toLowerCase();
-      document.querySelectorAll(".video-wrapper").forEach((wrapper, index) => {
-        const title = videos[index] ? videos[index].title.toLowerCase() : "";
-        wrapper.style.display = title.includes(searchValue) ? "block" : "none";
+    document.getElementById("searchInput").addEventListener("input", function () {
+      const val = this.value.toLowerCase();
+      document.querySelectorAll("#videoList .video-card").forEach(card => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = title.includes(val) ? "block" : "none";
       });
     });
 
-    document.getElementById("favToggle").addEventListener("click", () => {
-      const favDiv = document.getElementById("favorites");
-      favDiv.style.display = favDiv.style.display === "none" || favDiv.style.display === "" ? "block" : "none";
-    });
-
-    createVideoElements();
+    renderVideos();
   </script>
 </body>
+
 </html>

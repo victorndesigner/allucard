@@ -1,350 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Nosferatu Allucard</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:url" content="https://allucard.shop/">
-  <meta property="og:site_name" content="Pássaro de Hermes">
+  <!-- Metas -->
   <meta property="og:title" content="Nosferatu Allucard">
   <meta property="og:description" content="Criador Oficial do Once Human!">
   <meta property="og:image" content="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="1200">
-  <meta property="og:image:alt" content="Banner Nosferatu Allucard">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
 
-<title>Nosferatu Allucard</title>
-<link rel="icon" href="img/icon.png">
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: url('img/fundo.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  overflow: auto;
-  box-sizing: border-box;
-}
-
-.navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  background-color: rgba(34, 34, 34, 0.9);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  position: relative;
-  box-sizing: border-box;
-}
-
-.navbar .logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #b92323;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-}
-
-.navbar-links {
-  display: flex;
-  gap: 10px;
-  flex-grow: 1;
-  justify-content: center;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-  background-color: #222;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.274);
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.navbar a:hover {
-  background-color: #961a1a;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.5);
-}
-
-.lang-switch {
-  display: flex;
-  gap: 10px;
-}
-
-.lang-switch img {
-  width: 32px;
-  height: 22px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  transition: border 0.3s;
-}
-
-.lang-switch img.active {
-  border: 2px solid #b92323;
-}
-
-.content {
-  text-align: center;
-  width: 90%;
-  max-width: 1200px;
-  margin-top: 20px;
-  flex-grow: 1;
-}
-
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-p {
-  color: #dcdcdc;
-  font-size: 1.2em;
-}
-
-.video-container {
-  margin: 30px 0;
-  text-align: center;
-}
-
-.video-container h2 {
-  margin-bottom: 15px;
-  font-size: 1.5em;
-}
-
-.video-container a {
-  display: block;
-  position: relative;
-  width: 100%;
-  max-width: 560px;
-  margin: 0 auto;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.video-container img {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-}
-
-.video-container .play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-}
-
-.button-container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.horizontal-buttons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.button-container a {
-  text-decoration: none;
-  padding: 10px 20px;
-  background-color: #961a1a;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.button-container a:hover {
-  background-color: #791919;
-}
-
-footer {
-  text-align: center;
-  width: 100%;
-  padding: 15px 0;
-  background-color: rgba(34,34,34,0.9);
-  color: #dcdcdc;
-  margin-top: auto;
-}
-
-.particles {
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-}
-
-.particle {
-  position:absolute;
-  width:5px;
-  height:5px;
-  background-color: rgba(179,19,19,0.3);
-  border-radius:50%;
-  transform: translateY(-150px);
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  0% {transform: translateY(-150px); opacity:0;}
-  25% {opacity:1;}
-  100% {transform: translateY(110vh); opacity:0;}
-}
-
-@media screen and (max-width:1024px){
-  .navbar {
-    flex-direction:column;
-    align-items:center;
-    padding:10px;
-  }
-  .navbar .logo {
-    margin-bottom:10px;
-  }
-  .navbar a {
-    width:100%;
-    text-align:center;
-  }
-
-  .lang-switch {
-    margin-top: 10px;
-  }
-
-  .button-container {
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (max-width:768px){
-  .horizontal-buttons a {
-    flex:1 1 calc(25% - 1px);
-    text-align:center;
-  }
-  .teste-button {
-    margin-top:20px;
-    text-align:center;
-  }
-
-  .lang-switch {
-    margin-top: 10px;
-  }
-
-  .button-container {
-    margin-bottom: 20px;
-  }
-}
-
-</style>
+  <!-- Assets -->
+  <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
 
-<div class="navbar">
-  <div class="logo" id="logo-text" data-en="Bird of Hermes" data-pt="Pássaro de Hermes">Pássaro de Hermes</div>
-  <div class="navbar-links">
-    <a href="/" data-en="Home" data-pt="Início">Início</a>
-    <a href="/builds" data-en="Builds" data-pt="Builds">Builds</a>
-    <a href="/specs" data-en="Specializations" data-pt="Especializações">Especializações</a>
-  </div>
-  <div class="lang-switch">
-    <img id="ptBtn" src="https://flagcdn.com/w40/br.png" alt="Português">
-    <img id="enBtn" src="https://flagcdn.com/w40/us.png" alt="English">
-  </div>
-</div>
-
-<div class="content" id="inicio">
-  <h1 data-en="Welcome to the ultimate portal for Once Human fans!" data-pt="Bem-vindo ao portal definitivo para fãs de Once Human!">Bem-vindo ao portal definitivo para fãs de Once Human!</h1>
-  <p data-en="News, guides, and gameplay for Once Human. Everything you need in one place!" data-pt="Notícias, guias e gameplays de Once Human. Para iniciantes ou veteranos, tudo em um só lugar!">Notícias, guias e gameplays de Once Human. Para iniciantes ou veteranos, tudo em um só lugar!</p>
-
-  <div class="video-container">
-    <h2 data-en="Latest Video" data-pt="Último vídeo">Último vídeo</h2>
-    <a href="https://youtu.be/NtvqbP-IRgc?si=V4dMtyL09qHxK2HJ" target="_blank">
-      <img src="https://img.youtube.com/vi/NtvqbP-IRgc/maxresdefault.jpg" alt="Último vídeo" data-en-alt="Latest video" data-pt-alt="Último vídeo">
-      <div class="play-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24">
-          <path d="M3 22v-20l18 10-18 10z"/>
-        </svg>
-      </div>
-    </a>
-  </div>
-
-  <div class="button-container">
-    <a href="https://discord.com/channels/764302154575511582/1338179411794460875" class="teste-button" data-en="Private Consulting" data-pt="Consultoria Privada">Consultoria Privada</a>
-    <div class="horizontal-buttons">
-      <a href="https://www.youtube.com/@Nosferatu_Allucard" data-en="Youtube" data-pt="Youtube">Youtube</a>
-      <a href="https://www.twitch.tv/nosferatu_allucard" data-en="Twitch" data-pt="Twitch">Twitch</a>
-      <a href="https://kick.com/nosferatu_allucard" data-en="Kick" data-pt="Kick">Kick</a>
-      <a href="https://discord.gg/HY7DYHTTPt" data-en="Discord" data-pt="Discord">Discord</a>
-      <a href="https://x.com/053Alucard" data-en="Twitter (X)" data-pt="Twitter (X)">Twitter (X)</a>
+  <div id="preloader">
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
   </div>
-</div>
 
-<footer data-en="© Bird of Hermes. All rights reserved." data-pt="© Pássaro de Hermes. Todos os direitos reservados.">© Pássaro de Hermes. Todos os direitos reservados.</footer>
+  <header class="navbar">
+    <a href="index.html" class="logo" data-pt="Pássaro de Hermes" data-en="Bird of Hermes">Pássaro de Hermes</a>
 
-<div class="particles" id="particles"></div>
+    <!-- Desktop Menu -->
+    <nav class="navbar-links desktop-only">
+      <a href="index.html" class="active" data-pt="Início" data-en="Home">Início</a>
+      <a href="builds.html" data-pt="Builds" data-en="Builds">Builds</a>
+      <a href="specs.html" data-pt="Especializações" data-en="Specializations">Especializações</a>
+    </nav>
 
-<script>
-const particlesContainer = document.getElementById('particles');
-for(let i=0;i<100;i++){
-  const particle = document.createElement('div');
-  particle.classList.add('particle');
-  particle.style.left = Math.random()*100 + 'vw';
-  particle.style.animationDuration = Math.random()*5 + 3 + 's';
-  particle.style.animationDelay = Math.random()*5 + 's';
-  particlesContainer.appendChild(particle);
-}
+    <div class="lang-switch desktop-only">
+      <span id="ptBtn" class="lang-btn">BR</span>
+      <span id="enBtn" class="lang-btn">US</span>
+    </div>
 
-const ptBtn = document.getElementById('ptBtn');
-const enBtn = document.getElementById('enBtn');
+    <!-- Mobile Menu Toggle -->
+    <button class="hamburger-menu" aria-label="Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </header>
 
-function setLanguage(lang){
-  localStorage.setItem('lang', lang);
-  if(lang==='pt'){
-    ptBtn.classList.add('active'); enBtn.classList.remove('active');
-  } else {
-    enBtn.classList.add('active'); ptBtn.classList.remove('active');
-  }
-  document.querySelectorAll('[data-en]').forEach(el=>{
-    if(lang==='en'){
-      el.textContent = el.getAttribute('data-en');
-      if(el.tagName==='IMG' && el.hasAttribute('data-en-alt')) el.alt = el.getAttribute('data-en-alt');
-    } else {
-      el.textContent = el.getAttribute('data-pt');
-      if(el.tagName==='IMG' && el.hasAttribute('data-pt-alt')) el.alt = el.getAttribute('data-pt-alt');
-    }
-  });
-}
+  <!-- Mobile Menu Sidebar -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu-sidebar">
+    <button class="close-menu-btn">&times;</button>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="active" data-pt="Início" data-en="Home">Início</a>
+      <a href="builds.html" data-pt="Builds" data-en="Builds">Builds</a>
+      <a href="specs.html" data-pt="Especializações" data-en="Specializations">Especializações</a>
+    </nav>
+    <div class="mobile-lang-switch">
+      <span id="ptBtnMobile" class="lang-btn">BR</span>
+      <span id="enBtnMobile" class="lang-btn">US</span>
+    </div>
+  </div>
 
-ptBtn.addEventListener('click', ()=>setLanguage('pt'));
-enBtn.addEventListener('click', ()=>setLanguage('en'));
+  <main class="content">
+    <h1 class="main-title" data-pt="Bem-vindo ao portal definitivo para fãs de Once Human!"
+      data-en="Welcome to the ultimate portal for Once Human fans!">
+      Bem-vindo ao portal definitivo para fãs de Once Human!
+    </h1>
+    <p class="main-desc"
+      data-pt="Notícias, guias e gameplays de Once Human. Para iniciantes ou veteranos, tudo em um só lugar!"
+      data-en="News, guides, and gameplay for Once Human. Everything you need in one place!">
+      Notícias, guias e gameplays de Once Human. Para iniciantes ou veteranos, tudo em um só lugar!
+    </p>
 
-const savedLang = localStorage.getItem('lang') || 'pt';
-setLanguage(savedLang);
-</script>
+    <section class="video-card loading">
+      <div class="video-header">
+        <h2 class="video-title" data-pt="Último vídeo" data-en="Latest Video">Último vídeo</h2>
+        <span class="video-badge" data-pt="POSTADO NO YOUTUBE" data-en="POSTED ON YOUTUBE">POSTADO NO YOUTUBE</span>
+      </div>
+      <a id="latestVideoLink" href="#" target="_blank" class="video-thumbnail">
+        <img id="latestVideoThumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          alt="Thumbnail" data-pt-alt="Carregando..." data-en-alt="Loading...">
+        <div class="play-overlay">
+          <svg viewBox="0 0 24 24" width="30" fill="white">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+        <div class="video-info-overlay">
+          <span id="latestVideoInfo"></span>
+        </div>
+      </a>
+    </section>
 
+    <nav class="btn-group">
+      <a href="https://discord.com/channels/764302154575511582/1338179411794460875" class="main-btn"
+        data-pt="Consultoria Privada" data-en="Private Consulting">Consultoria Privada</a>
+
+      <div class="social-wrapper">
+        <a href="https://www.youtube.com/@Nosferatu_Allucard" class="social-btn" data-tooltip="Youtube">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M23.498 6.186c-.273-1.015-1.071-1.812-2.086-2.086C19.565 3.75 12 3.75 12 3.75s-7.565 0-9.412.35c-1.015.274-1.813 1.071-2.086 2.086C.15 8.033.15 12 .15 12s0 3.967.352 5.814c.273 1.015 1.071 1.812 2.086 2.086 1.847.35 9.412.35 9.412.35s7.565 0 9.412-.35c1.015-.274 1.813-1.071 2.086-2.086.352-1.847.352-5.814.352-5.814s0-3.967-.352-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+        </a>
+        <a href="https://www.twitch.tv/nosferatu_allucard" class="social-btn" data-tooltip="Twitch">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M2.149 0l-1.612 4.119v16.115h5.093v3.766h3.774l3.774-3.766h4.095l7.127-7.127v-13.107h-22.251zm20.14 12.112l-3.328 3.328h-4.57l-3.328 3.328v-3.328h-4.322v-12.72h15.548v9.392zm-3.328-6.657h-2.149v4.119h2.149v-4.119zm-5.093 0h-2.149v4.119h2.149v-4.119z" />
+          </svg>
+        </a>
+        <a href="https://discord.gg/HY7DYHTTPt" class="social-btn" data-tooltip="Discord">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037 19.736 19.736 0 0 0-4.885 1.515.069.069 0 0 0-.032.027C.533 9.048-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.419 0 1.334-.947 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z" />
+          </svg>
+        </a>
+        <a href="https://x.com/053Alucard" class="social-btn" data-tooltip="Twitter">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403z" />
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer>
+    <span data-pt="&copy; Pássaro de Hermes. Todos os direitos reservados."
+      data-en="&copy; Bird of Hermes. All rights reserved.">
+      &copy; Pássaro de Hermes. Todos os direitos reservados.
+    </span>
+    <a href="https://www.youtube.com/@Nosferatu_Allucard" target="_blank" class="footer-mention">@Nosferatu_Allucard</a>
+  </footer>
+
+  <div class="particles" id="particles"></div>
+
+  <script src="assets/script.js"></script>
 </body>
+
 </html>

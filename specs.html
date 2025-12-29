@@ -1,379 +1,349 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Especializações - Nosferatu Allucard</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:url" content="https://allucard.shop/">
-  <meta property="og:site_name" content="Pássaro de Hermes">
-  <meta property="og:title" content="Nosferatu Allucard">
-  <meta property="og:description" content="Criador Oficial do Once Human!">
-  <meta property="og:image" content="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="1200">
-  <meta property="og:image:alt" content="Banner Nosferatu Allucard">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/victorndesigner/allucard/main/img/icon.png">
-
-  <title>Especializações do Allucard</title>
+  <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    body {
-      background-color: #181818;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .top-line {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 10px;
-    }
-
-    .lang-switch {
-      position: absolute;
-      left: 50px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .lang-switch img {
-      width: 28px;
-      height: 20px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      border-radius: 4px;
-      transition: border 0.3s;
-    }
-
-    .lang-switch img.active {
-      border: 2px solid #b92323;
-    }
-
-    .voltar-btn {
-      background-color: rgba(34, 34, 34, 0.9);
+    .server-badge {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 25px;
+      background: rgba(255, 0, 0, 0.15);
+      border: 1px solid var(--cor-primaria);
+      padding: 8px 25px;
+      border-radius: 40px;
+      font-size: 0.85rem;
       color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      cursor: pointer;
-      font-size: 16px;
-      transition: all 0.3s;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
     }
 
-    .voltar-btn:hover {
-      background-color: #961a1a;
-      transform: translateY(-2px);
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 35px;
+      margin-top: 40px;
     }
 
-    /* Ajuste de responsividade */
-    @media screen and (max-width:1024px) {
-      .top-line {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .lang-switch {
-        position: static;
-        justify-content: center;
-        margin-top: 5px;
-      }
-      .voltar-btn {
-        margin-top: 10px;
-      }
+    .spec-item {
+      background: rgba(25, 25, 25, 0.7);
+      /* Lighter than before */
+      border: 1px solid var(--vidro-borda);
+      border-radius: 25px;
+      padding: 25px;
+      position: relative;
+      transition: var(--transicao);
+      text-align: left;
+      backdrop-filter: blur(10px);
     }
 
-    @media screen and (max-width:768px) {
-      .top-line {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .lang-switch {
-        position: static;
-        justify-content: center;
-        margin-top: 5px;
-      }
-      .voltar-btn {
-        margin-top: 10px;
-      }
+    .spec-item:hover {
+      border-color: var(--cor-primaria);
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+      /* transform: translateY(-8px); REMOVED */
     }
 
-    .servidor {
-      font-size: 14px;
-      margin-top: 15px;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      margin-top: 5px;
+    .spec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 20px;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      padding: 20px;
+    .spec-name {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #fff;
+      text-transform: uppercase;
+      transition: var(--transicao);
     }
 
-    .bloco {
-      background-color: #222;
-      padding: 15px;
-      border-radius: 15px;
+    .spec-item:hover .spec-name {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .spec-item:hover .spec-name[style*="color: var(--cor-primaria)"] {
+      text-shadow: 0 0 15px var(--cor-primaria);
+    }
+
+    .copy-id-btn {
+      background: var(--cor-primaria);
+      border: none;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transicao);
+      box-shadow: var(--glow-primario);
+    }
+
+    .copy-id-btn:hover {
+      background: #cc0000;
+      transform: scale(1.05);
+    }
+
+    .spec-image-container {
       width: 100%;
-      max-width: 910px;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       position: relative;
-      box-shadow: 0 0 10px #a5a5a557;
     }
 
-    .imagem-bloco {
+    .spec-image-container img {
       width: 100%;
-      border-radius: 15px;
-      border: 3px solid #e22b2b;
-      aspect-ratio: 1920 / 1080;
-      object-fit: cover;
+      display: block;
+      transition: var(--transicao);
     }
 
-    .placeholder {
+    /* .spec-item:hover .spec-image-container img {
+      transform: scale(1.05);
+    } REMOVED */
+
+    .spec-placeholder {
       width: 100%;
-      aspect-ratio: 1920 / 1080;
-      background-color: #272727;
-      color: white;
+      aspect-ratio: 16/9;
+      background: rgba(255, 255, 255, 0.02);
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #555;
+      font-weight: 800;
+      border: 2px dashed #333;
       border-radius: 15px;
-      border: 3px dashed #e22b2b;
-      font-size: 18px;
-      font-weight: bold;
     }
 
-    .nome-id {
-      font-weight: bold;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-
-    .btn-copiar {
-      background-color: #e22b2b;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 12px;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      transform: translateY(-100%);
-    }
-
-    .btn-copiar:hover {
-      background-color: rgb(193, 33, 33);
-    }
-
-    .btn-visualizar {
+    .view-btn {
       display: inline-block;
-      margin-top: 10px;
-      font-size: 12px;
-      color: white;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    .creditos {
-      margin: 10px 0;
-      font-size: 14px;
-    }
-
-    .creditos a {
-      color: #e22b2b;
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: var(--cor-primaria);
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+      font-weight: 700;
+      transition: var(--transicao);
     }
 
-    .creditos a:hover {
-      color: #b080ff;
+    .view-btn:hover {
+      text-shadow: var(--glow-texto);
+      transform: translateX(5px);
     }
 
-    .particles {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      pointer-events:none;
+    .btn-outline-spec {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--cor-primaria) !important;
+      color: #fff !important;
+      padding: 8px 25px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: var(--transicao);
     }
 
-    .particle {
-      position:absolute;
-      width:5px;
-      height:5px;
-      background-color: rgba(179,19,19,0.3);
-      border-radius:50%;
-      transform: translateY(-150px);
-      animation: fall linear infinite;
+    .btn-outline-spec:hover {
+      background: rgba(255, 0, 0, 0.1);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
     }
 
-    @keyframes fall {
-      0% {transform: translateY(-150px); opacity:0;}
-      25% {opacity:1;}
-      100% {transform: translateY(110vh); opacity:0;}
-    }
-
-    @media (max-width: 950px) {
-      .bloco {
-        width: 95%;
-      }
+    .copy-id-btn.copied {
+      background: #333 !important;
+      border: 1px solid #555 !important;
+      color: #888 !important;
+      box-shadow: none !important;
+      cursor: default;
     }
   </style>
-
-  <script src="info.js"></script>
 </head>
+
 <body>
 
-  <div class="top-line">
-    <div class="lang-switch">
-      <img id="ptBtn" src="https://flagcdn.com/w40/br.png" alt="Português">
-      <img id="enBtn" src="https://flagcdn.com/w40/us.png" alt="English">
+  <div id="preloader">
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
-    <button class="voltar-btn" onclick="history.back()">Voltar</button>
   </div>
 
-  <div class="servidor" id="servidor-nome"></div>
-  <h1 id="titulo"><span style="color: #e22b2b;">ESPECIALIZAÇÕES</span> <span>ALLUCARD</span></h1>
+  <header class="navbar">
+    <a href="index.html" class="logo" data-pt="Pássaro de Hermes" data-en="Bird of Hermes">Pássaro de Hermes</a>
 
-  <div class="container" id="container-blocos"></div>
+    <!-- Desktop Menu -->
+    <nav class="navbar-links desktop-only">
+      <a href="index.html" data-pt="Início" data-en="Home">Início</a>
+      <a href="builds.html" data-pt="Builds" data-en="Builds">Builds</a>
+      <a href="specs.html" class="active" data-pt="Especializações" data-en="Specializations">Especializações</a>
+    </nav>
 
-  <div class="creditos" id="creditos">
-    <span>By </span><a href="https://www.youtube.com/@Nosferatu_Allucard" target="_blank">Pássaro de Hermes</a>
+    <div class="lang-switch desktop-only">
+      <span id="ptBtn" class="lang-btn">BR</span>
+      <span id="enBtn" class="lang-btn">US</span>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="hamburger-menu" aria-label="Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </header>
+
+  <!-- Mobile Menu Sidebar -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu-sidebar">
+    <button class="close-menu-btn">&times;</button>
+    <nav class="mobile-nav-links">
+      <a href="index.html" data-pt="Início" data-en="Home">Início</a>
+      <a href="builds.html" data-pt="Builds" data-en="Builds">Builds</a>
+      <a href="specs.html" class="active" data-pt="Especializações" data-en="Specializations">Especializações</a>
+    </nav>
+    <div class="mobile-lang-switch">
+      <span id="ptBtnMobile" class="lang-btn">BR</span>
+      <span id="enBtnMobile" class="lang-btn">US</span>
+    </div>
   </div>
+
+  <main class="content">
+    <div id="servidor-nome" class="server-badge">Servidor Carregando...</div>
+    <h1 id="pageTitle" class="specs-title" data-pt="ESPECIALIZAÇÕES <span>ALLUCARD</span>"
+      data-en="ALLUCARD <span>SPECS</span>">
+      ESPECIALIZAÇÕES <span>ALLUCARD</span></h1>
+
+    <style>
+      .specs-title {
+        display: inline-block;
+        margin-bottom: 25px;
+        transition: var(--transicao);
+        cursor: default;
+      }
+
+      .specs-title:hover {
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        transform: scale(1.02);
+      }
+    </style>
+
+    <div id="masterBlockContainer"></div>
+    <div id="specsContainer" class="specs-grid"></div>
+  </main>
+
+  <footer>
+    <span data-pt="&copy; Pássaro de Hermes. Todos os direitos reservados."
+      data-en="&copy; Bird of Hermes. All rights reserved.">
+      &copy; Pássaro de Hermes. Todos os direitos reservados.
+    </span>
+    <a href="https://www.youtube.com/@Nosferatu_Allucard" target="_blank" class="footer-mention">@Nosferatu_Allucard</a>
+  </footer>
 
   <div class="particles" id="particles"></div>
 
+  <script src="assets/info.js"></script>
+  <script src="assets/script.js"></script>
+
   <script>
-  const particlesContainer = document.getElementById('particles');
-  for(let i=0;i<100;i++){
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    particle.style.left = Math.random()*100 + 'vw';
-    particle.style.animationDuration = Math.random()*5 + 3 + 's';
-    particle.style.animationDelay = Math.random()*5 + 's';
-    particlesContainer.appendChild(particle);
-  }
-    const translations = {
-      pt: {
-        title: "<span style='color: #e22b2b;'>ESPECIALIZAÇÕES</span> <span>ALLUCARD</span>",
-        placeholder: "allucard ainda vai atualizar...",
-        visualizar: "Visualizar",
-        copiar: "Copiar ID",
-        creditos: "<span>By </span><a href='https://www.youtube.com/@Nosferatu_Allucard' target='_blank'>Pássaro de Hermes</a>"
-      },
-      en: {
-        title: "<span style='color: #e22b2b;'>SPECS</span> <span>ALLUCARD</span>",
-        placeholder: "allucard will update soon...",
-        visualizar: "View",
-        copiar: "Copy ID",
-        creditos: "<span>By </span><a href='https://www.youtube.com/@Nosferatu_Allucard' target='_blank'>Bird of Hermes</a>"
+    function renderSpecs() {
+      const container = document.getElementById("specsContainer");
+      const masterContainer = document.getElementById("masterBlockContainer");
+      const lang = localStorage.getItem('lang') || 'pt';
+
+      // Servidor
+      const server = typeof servidorNome !== 'undefined' ? servidorNome : "Servidor";
+      document.getElementById("servidor-nome").textContent = server;
+
+      // Master Block (Allucard Profile)
+      masterContainer.innerHTML = "";
+      const masterInfo = blocosInfo.find(b => b.nome === "Nsfrt_Allucard");
+      if (masterInfo) {
+        masterContainer.appendChild(createMasterBlock(masterInfo, lang));
       }
-    };
-  
-    let currentLang = localStorage.getItem("lang") || "pt";
-  
-    function switchLang(lang) {
-      currentLang = lang;
-      localStorage.setItem("lang", lang);
-  
-      document.getElementById("titulo").innerHTML = translations[lang].title;
-      document.getElementById("creditos").innerHTML = translations[lang].creditos;
-  
+
+      // Rest of Specs
       container.innerHTML = "";
       [...blocosInfo]
+        .filter(b => b.nome !== "Nsfrt_Allucard")
         .sort((a, b) => (b.mostrar ? 1 : 0) - (a.mostrar ? 1 : 0))
         .forEach(info => {
-          const bloco = criarBloco(info);
-          container.appendChild(bloco);
+          container.appendChild(createSpecItem(info, lang));
         });
-  
-      document.getElementById("ptBtn").classList.toggle("active", lang === "pt");
-      document.getElementById("enBtn").classList.toggle("active", lang === "en");
     }
-  
-    const servidor = typeof servidorNome !== 'undefined' ? servidorNome : "Servidor Desconhecido";
-    document.getElementById("servidor-nome").textContent = servidor;
-  
-    function copiarID(id) {
+
+    function createMasterBlock(info, lang) {
+      const div = document.createElement("div");
+      div.className = "spec-item";
+      div.style.maxWidth = "600px";
+      div.style.margin = "0 auto 50px";
+      div.style.borderColor = "var(--cor-primaria)";
+      div.style.borderWidth = "2px";
+
+      const copyText = lang === 'pt' ? 'Copiar ID' : 'Copy ID';
+      const viewText = lang === 'pt' ? 'Visualizar Imagem' : 'View Image';
+
+      div.innerHTML = `
+        <div class="spec-header">
+            <span class="spec-name" style="color: var(--cor-primaria)">NOSFERATU ALLUCARD</span>
+            ${info.mostrar ? `<button class="copy-id-btn" onclick="copyID('${info.id}', this)">${copyText}</button>` : ""}
+        </div>
+        <div class="spec-image-container" style="border-color: var(--cor-primaria)">
+            ${info.mostrar ? `<img src="assets/${info.imagem}" alt="${info.nome}" style="filter: brightness(1.1)">` : `<div class="spec-placeholder" style="color: #aaa; border-color: var(--cor-primaria)">${lang === 'pt' ? 'Allucard esqueceu de atualizar...' : 'Allucard forgot to update...'}</div>`}
+        </div>
+        <div style="text-align: center; margin-top: 15px;">
+            ${info.mostrar ? `<a href="assets/${info.imagem}" target="_blank" class="btn-outline-spec">${viewText}</a>` : ""}
+        </div>
+      `;
+      return div;
+    }
+
+    function createSpecItem(info, lang) {
+      const div = document.createElement("div");
+      div.className = "spec-item";
+
+      const copyText = lang === 'pt' ? 'Copiar ID' : 'Copy ID';
+      const viewText = lang === 'pt' ? 'Visualizar' : 'View';
+      const placeholderText = lang === 'pt' ? 'Allucard esqueceu de atualizar...' : 'Allucard forgot to update...';
+
+      // Note: adjust image path prefix
+      const imgPath = info.imagem.startsWith('http') ? info.imagem : `assets/${info.imagem}`;
+
+      div.innerHTML = `
+                <div class="spec-header">
+                    <span class="spec-name">${info.nome}</span>
+                    ${info.mostrar ? `<button class="copy-id-btn" onclick="copyID('${info.id}', this)">${copyText}</button>` : ""}
+                </div>
+                <div class="spec-image-container">
+                    ${info.mostrar ? `<img src="${imgPath}" alt="${info.nome}">` : `<div class="spec-placeholder">${placeholderText}</div>`}
+                </div>
+                ${info.mostrar ? `<a href="${imgPath}" target="_blank" class="view-btn">${viewText}</a>` : ""}
+            `;
+      return div;
+    }
+
+    window.copyID = (id, btn) => {
+      const lang = localStorage.getItem('lang') || 'pt';
       navigator.clipboard.writeText(id).then(() => {
-        alert((currentLang === "pt" ? "ID copiado: " : "Copied ID: ") + id);
+        const originalText = btn.textContent;
+        btn.textContent = lang === 'pt' ? 'Copiado!' : 'Copied!';
+        btn.classList.add('copied');
+
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
       });
-    }
-  
-    function visualizarImagem(src) {
-      window.open(src, '_blank');
-    }
-  
-    function criarBloco({ nome, id, mostrar, imagem }) {
-      const bloco = document.createElement("div");
-      bloco.className = "bloco";
-  
-      const nomeDiv = document.createElement("div");
-      nomeDiv.className = "nome-id";
-      nomeDiv.textContent = nome;
-      bloco.appendChild(nomeDiv);
-  
-      if (mostrar) {
-        const btnCopiar = document.createElement("button");
-        btnCopiar.className = "btn-copiar";
-        btnCopiar.textContent = translations[currentLang].copiar;
-        btnCopiar.onclick = () => copiarID(id);
-        bloco.appendChild(btnCopiar);
-      }
-  
-      const imgContainer = document.createElement("div");
-      if (mostrar) {
-        const img = document.createElement("img");
-        img.src = imagem;
-        img.alt = nome;
-        img.className = "imagem-bloco";
-        imgContainer.appendChild(img);
-      } else {
-        const placeholder = document.createElement("div");
-        placeholder.className = "placeholder";
-        placeholder.textContent = translations[currentLang].placeholder;
-        imgContainer.appendChild(placeholder);
-      }
-      bloco.appendChild(imgContainer);
-  
-      if (mostrar) {
-        const btnVisualizar = document.createElement("div");
-        btnVisualizar.className = "btn-visualizar";
-        btnVisualizar.textContent = translations[currentLang].visualizar;
-        btnVisualizar.onclick = () => visualizarImagem(imagem);
-        bloco.appendChild(btnVisualizar);
-      }
-  
-      return bloco;
-    }
-  
-    const container = document.getElementById("container-blocos");
-    switchLang(currentLang);
-  
-    document.getElementById("ptBtn").addEventListener("click", () => switchLang("pt"));
-    document.getElementById("enBtn").addEventListener("click", () => switchLang("en"));
+    };
+
+    renderSpecs();
   </script>
 </body>
+
 </html>
