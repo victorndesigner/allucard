@@ -1,5 +1,5 @@
 const videos = [
-    { title: "MPS5 KUMAWINK 2.0", url: "https://youtu.be/j05cgc38HnI?si=KmED24ktxrg8Yboz", updated: true },
+    { title: "MPS5 KUMAWINK 2.0", url: "https://youtu.be/qKJzfAPYzPc?si=VPIXkyeCE1oZlpL3", updated: true },
     { title: "DE-50 MANDÍBULAS", url: "https://youtu.be/QSJc4OGIBZc?si=dYr9_YLDHEWcPdG3", updated: true },
     { title: "MPS7 ESPAÇO SIDERAL", url: "https://youtu.be/yvs7QXznNHg?si=QSQkJ85VToExOzhG", updated: false },
     { title: "SOCR CORAGEM FINAL", url: "https://youtu.be/j05cgc38HnI?si=KmED24ktxrg8Yboz", updated: true },
